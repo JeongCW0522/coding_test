@@ -1,18 +1,18 @@
 function solution(s) {
   const answer = [];
-  const lastIndex = new Map();
-
-  for (let i = 0; i < s.length; i++) {
-    const char = s[i];
-
-    if (!lastIndex.has(char)) {
-      answer.push(-1);
-    } else {
-      answer.push(i - lastIndex.get(char));
+  const map = new Map();
+    
+    for(let i =0; i<s.length; i++){
+        let char = s[i]
+        
+        if(!map.has(char)){
+            answer.push(-1)
+        } else{
+            answer.push(i - map.get(char))
+        }
+        
+        map.set(char, i)
     }
-
-    lastIndex.set(char, i);
-  }
 
   return answer;
 }
