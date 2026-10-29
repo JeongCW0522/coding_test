@@ -25,7 +25,7 @@ function solution(s, skip, index) {
             
         }
         
-        if ((code + index + count) > 123){
+        if ((code + index + count) > 122){
             code -= 26
         }
         
