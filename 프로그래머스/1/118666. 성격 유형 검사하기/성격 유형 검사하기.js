@@ -1,6 +1,15 @@
 function solution(survey, choices) {
     var answer = '';
-    let map = new Map();
+    let map = new Map([
+        ['R', 0],
+        ['T', 0],
+        ['C', 0],
+        ['F', 0],
+        ['J', 0],
+        ['M', 0],
+        ['A', 0],
+        ['N', 0]
+    ]);
     
     let arr = ["RT", "CF", "JM", "AN"];
     
@@ -9,28 +18,28 @@ function solution(survey, choices) {
         
         if(choices[i] === 1){
             ch = survey[i][0]
-            map.set(ch, (map.get(ch) ?? 0) + 3)
+            map.set(ch, map.get(ch) + 3)
         } else if(choices[i] === 2){
             ch = survey[i][0]
-            map.set(ch, (map.get(ch) ?? 0) + 2)
+            map.set(ch, map.get(ch) + 2)
         } else if(choices[i] === 3){
             ch = survey[i][0]
-            map.set(ch, (map.get(ch) ?? 0) + 1)
+            map.set(ch, map.get(ch) + 1)
         } else if(choices[i] === 5){
             ch = survey[i][1]
-            map.set(ch, (map.get(ch) ?? 0) + 1)
+            map.set(ch, map.get(ch) + 1)
         } else if(choices[i] === 6){
             ch = survey[i][1]
-            map.set(ch, (map.get(ch) ?? 0) + 2)
+            map.set(ch, map.get(ch) + 2)
         } else if(choices[i] === 7){
             ch = survey[i][1]
-            map.set(ch, (map.get(ch) ?? 0) + 3)
+            map.set(ch, map.get(ch) + 3)
         } else continue
     }
     
     for(let i =0; i < arr.length; i++){
-        let a = map.get(arr[i][0]) ?? 0
-        let b = map.get(arr[i][1]) ?? 0
+        let a = map.get(arr[i][0])
+        let b = map.get(arr[i][1])
         
         if(a > b){
             answer += arr[i][0]
