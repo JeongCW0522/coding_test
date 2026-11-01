@@ -21,33 +21,13 @@ function solution(answers) {
         }
     }
     
-    if(map.get(1) > map.get(2) && map.get(1) > map.get(3)){
-        answer.push(1)
-        return answer
-    } else if(map.get(2) > map.get(1) && map.get(2) > map.get(3)){
-        answer.push(2)
-        return answer
-    } else if(map.get(3) > map.get(1) && map.get(3) > map.get(2)){
-        answer.push(3)
-        return answer
-    } else if(map.get(1) === map.get(2) && map.get(1) > map.get(3)){
-        answer.push(1)
-        answer.push(2)
-        return answer
-    } else if(map.get(1) === map.get(3) && map.get(1) > map.get(2)){
-        answer.push(1)
-        answer.push(3)
-        return answer
-    }else if(map.get(3) === map.get(2) && map.get(1) < map.get(3)){
-        answer.push(2)
-        answer.push(3)
-        return answer
-    }else {
-        answer.push(1)
-        answer.push(2)
-        answer.push(3)
-        return answer
-    }
+    const max = Math.max(map.get(1), map.get(2), map.get(3));
+
+    if (map.get(1) === max) answer.push(1);
+    if (map.get(2) === max) answer.push(2);
+    if (map.get(3) === max) answer.push(3);
+
+return answer;
     
 
 }
